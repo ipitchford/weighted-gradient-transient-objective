@@ -1,0 +1,53 @@
+{
+  "schemaVersion": "1.0",
+  "release": "weighted-gradient-transient-objective",
+  "version": "0.1.0-candidate",
+  "date": "2026-11-06",
+  "creator": "Anonymous",
+  "doi": "10.5281/zenodo.24001734",
+  "conceptDoi": "10.5281/zenodo.24001733",
+  "status": "AI-assisted unrefereed candidate",
+  "assurance": {
+    "externalPeerReview": false,
+    "formalVerification": false,
+    "independentExternalReproduction": false,
+    "priorityEstablished": false
+  },
+  "claims": [
+    {
+      "id": "weighted-gradient-transient-objective:G1",
+      "statement": "With lambda_min=1, positive nondecreasing unbounded Psi and fixed omega in (0,1], K>=1, the worst objective ratio has deficit 2 omega K/kappa+o(1/kappa).",
+      "location": "Theorem 3; Proposition 1",
+      "evidence": "Written analytic upper bound and low-dimensional lower constructions.",
+      "limitations": "Fixed weight, relaxation and horizon; nonhomogeneous weights require the stated normalization."
+    },
+    {
+      "id": "weighted-gradient-transient-objective:G2",
+      "statement": "For power weights lambda^(2 ell), ell>0, omega=1, the sharp deficit per step persists for K=o(log kappa).",
+      "location": "Lemma 6; Theorem 7",
+      "evidence": "Quantitative written bootstrap argument.",
+      "limitations": "Instance may depend on horizon; not a fixed-matrix long-time statement."
+    },
+    {
+      "id": "weighted-gradient-transient-objective:G3",
+      "statement": "One three-dimensional instance at each kappa violates the per-iteration Kantorovich comparison throughout the stated logarithmic interval.",
+      "location": "Corollary 8",
+      "evidence": "Written uniform construction.",
+      "limitations": "No sharp transition or arbitrary-algorithm complexity lower bound."
+    },
+    {
+      "id": "weighted-gradient-transient-objective:G4",
+      "statement": "Two active eigenvalues cannot violate the unrelaxed two-step C_kappa squared bound; explicit three-mode rational examples do violate it.",
+      "location": "Proposition 5; exact rational examples; checks/check_exact_examples.py",
+      "evidence": "Written two-mode identity and finite exact rational arithmetic.",
+      "limitations": "Weak single-factor two-step interpretation remains valid; no unqualified refutation of source prose question."
+    },
+    {
+      "id": "weighted-gradient-transient-objective:G5",
+      "statement": "The displayed finite-horizon condition and strict comparison suffice for failure for the specified initial point.",
+      "location": "Finite-parameter applicability and failure test following Lemma 6",
+      "evidence": "Elementary corollary of the explicit error bound.",
+      "limitations": "Sufficient, not necessary or optimal; nonrational evaluation requires certified enclosures."
+    }
+  ]
+}

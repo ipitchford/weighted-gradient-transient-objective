@@ -1,0 +1,23 @@
+{
+  "title": "Transient objective convergence of spectrally weighted gradient descent",
+  "upload_type": "publication",
+  "publication_type": "preprint",
+  "description": "AI-assisted, unrefereed candidate on ordinary-objective transient convergence for spectrally weighted single-gradient-direction methods. With smallest eigenvalue one, positive nondecreasing unbounded weights, fixed horizon K and relaxation 0<omega<=1, the worst-case ratio has leading deficit 2 omega K/kappa. Power weights admit sublogarithmic sharpness and a logarithmic interval of simultaneous failures of a strong two-step interpretation. The weaker interpretation remains true; no proved source theorem is refuted.",
+  "creators": [
+    {
+      "name": "Anonymous"
+    }
+  ],
+  "version": "0.1.0-candidate",
+  "publication_date": "2026-11-06",
+  "access_right": "open",
+  "license": "cc-zero",
+  "doi": "10.5281/zenodo.24001734",
+  "related_identifiers": [{"identifier": "https://github.com/ipitchford/weighted-gradient-transient-objective", "relation": "isSupplementTo", "scheme": "url"}],
+  "keywords": [
+    "mathematics",
+    "AI-assisted research",
+    "unrefereed candidate",
+    "weighted-gradient-transient-objective"
+  ]
+}

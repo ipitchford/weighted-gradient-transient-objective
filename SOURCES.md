@@ -1,0 +1,16 @@
+# Source-to-claim comparison
+
+Passages below were inspected on 6 November 2026. This is a bounded full-text comparison of relevant arguments, not a claim to have reread every page of every cited work.
+
+1. **MacDonald, Murray and Tappenden (2025), On a family of relaxed gradient descent methods for strictly convex quadratic minimization.** DOI [10.1007/s10589-025-00670-3](https://doi.org/10.1007/s10589-025-00670-3); [published full text](https://d-nb.info/1367923360/34). Inspected definitions, Section 3.2.1, Theorem 10 and proof, and Section 6 “Future work”. The two-step question is prose. Their proved Rate I and prefactored Rate II are not refuted; the present paper separates two possible interpretations.
+2. **Pronzato, Wynn and Zhigljavsky (2006), Asymptotic behaviour of a family of gradient algorithms in R^d and Hilbert spaces.** DOI [10.1007/s10107-005-0602-7](https://doi.org/10.1007/s10107-005-0602-7); inspected author manuscript [arXiv:0802.4382v1](https://arxiv.org/abs/0802.4382v1). Definition 1, spectral transformation and asymptotic scope establish the prior algorithm relation P(lambda)=Psi(lambda)/lambda with additional regularity. The entire Hilbert-space proof was not rechecked.
+3. **Huang, Dai, Liu and Zhang (2022), On the asymptotic convergence and acceleration of gradient methods.** DOI [10.1007/s10915-021-01685-8](https://doi.org/10.1007/s10915-021-01685-8); inspected [arXiv:1908.07111v1](https://arxiv.org/abs/1908.07111v1), Theorem 7, Corollary 11 equations (60)–(62), Remark 12 equation (63). These concern fixed-matrix limiting objective ratios, compatible with the different condition-number/horizon limit here. Locators are for this version, not assumed journal numbering.
+4. **He (2025), The worst-case root-convergence factor of GMRES(1).** [arXiv:2501.10248v1](https://arxiv.org/abs/2501.10248v1), Section 2.2, Theorem 9, Lemma 10 and maximization proof. The two-eigenspace scalar structure is prior; residual/root factors are not the ordinary-objective transient investigated here.
+5. **MacDonald, Murray and Tappenden (2025), A Flexible Algorithmic Framework for Strictly Convex Quadratic Minimization.** [arXiv:2505.04047v1](https://arxiv.org/abs/2505.04047v1), Definition 8, Section 2.1, Lemma 9 and comparison proof. This broader multidirectional/preconditioned family uses a selected weighted gradient norm. No sharp ordinary-objective transient lower theorem matching the present result was identified in those passages.
+
+## Bounded overlap search
+
+Search families included spectrally weighted finite-horizon convergence, minimal-gradient two-step counterexamples, sublogarithmic convergence and author/name variants. The canonical Evidence Press catalogue returned 252 papers at the recorded search: exact-title and relevant aliases yielded no matching output. The OpenAI mathematics overview and a complete preprints subtree listing were inspected for relevant paths/titles; this was not semantic full-text review of all works. The whole-tree listing was truncated and was not treated as complete coverage.
+
+No identical theorem was identified in this coverage. No author enquiry or exhaustive subscription-database search was performed. A differently named objective-norm transient theorem remains a historical-priority risk. Search absence is not proof of originality.
+

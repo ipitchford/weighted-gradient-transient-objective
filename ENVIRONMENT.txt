@@ -1,0 +1,6 @@
+Observed checker runtime: Python 3.14.7
+Dependencies: Python standard library (Fraction, Decimal and standard support modules)
+TeX compiler observed: pdfTeX 1.40.29 / TeX Live 2026
+TeX packages: article, fontenc, inputenc, lmodern, geometry, amsmath, amssymb, amsthm, mathtools, booktabs, tabularx, microtype, xcolor, hyperref
+No numerical dependency installation required.
+

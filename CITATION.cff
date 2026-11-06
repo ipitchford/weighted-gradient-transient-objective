@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite this AI-assisted, unrefereed research candidate; citation does not imply independent validation."
+type: article
+title: "Transient objective convergence of spectrally weighted gradient descent"
+authors:
+  - name: Anonymous
+version: 0.1.0-candidate
+date-released: 2026-11-06
+doi: 10.5281/zenodo.24001734
+license: CC0-1.0
+abstract: "AI-assisted, unrefereed candidate on ordinary-objective transient convergence for spectrally weighted single-gradient-direction methods. With smallest eigenvalue one, positive nondecreasing unbounded weights, fixed horizon K and relaxation 0<omega<=1, the worst-case ratio has leading deficit 2 omega K/kappa. Power weights admit sublogarithmic sharpness and a logarithmic interval of simultaneous failures of a strong two-step interpretation. The weaker interpretation remains true; no proved source theorem is refuted."
+

@@ -1,0 +1,128 @@
+{
+  "schemaVersion": "1.0",
+  "contributionMap": [
+    {
+      "claim": "Sharp leading fixed-horizon ordinary-objective deficit 2 omega K/kappa for normalized positive nondecreasing unbounded weights",
+      "unit": "statement",
+      "paperLocation": "Theorem 3",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "spectrally weighted finite-horizon convergence; minimal-gradient two-step counterexamples; sublogarithmic convergence",
+          "corpus": "Primary full-text sources, web search, Evidence Press canonical catalogue"
+        }
+      ],
+      "closestPriorWork": "MMT2025 Theorem10 and Section6; HDLZ2022 arXivv1 Corollary11 and Remark12",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Power-weight sublogarithmic sharpness and simultaneous logarithmic failure interval",
+      "unit": "statement",
+      "paperLocation": "Lemma6, Theorem7, Corollary8",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "minimal-gradient sublogarithmic convergence and finite-horizon objective",
+          "corpus": "Primary full-text sources and web search"
+        }
+      ],
+      "closestPriorWork": "PWZ2006 fixed-matrix asymptotics; MMT2025b weighted-norm comparison",
+      "verdict": "new-in-bounded-search"
+    },
+    {
+      "claim": "Spectrally weighted iteration and two-mode reciprocal dynamics",
+      "unit": "method",
+      "paperLocation": "Introduction; Proposition5",
+      "searches": [
+        {
+          "date": "2026-11-06",
+          "query": "P-gradient and GMRES(1) two-point dynamics",
+          "corpus": "PWZ2006, HDLZ2022, He2025 primary texts"
+        }
+      ],
+      "closestPriorWork": "PWZ2006 Definition1; He2025 Theorem9/Lemma10",
+      "verdict": "known-cited"
+    }
+  ],
+  "sourcesReadInFull": [
+    {
+      "citation": "MMT2025",
+      "usedFor": "Algorithm and prose question",
+      "readWhat": "Definitions, Section3.2.1, Theorem10 and proof, Section6 Future work",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://d-nb.info/1367923360/34"
+    },
+    {
+      "citation": "PWZ2006",
+      "usedFor": "Prior algorithm and transformation",
+      "readWhat": "Definition1, spectral transformation, stated asymptotic scope; not entire Hilbert-space proof",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/abs/0802.4382v1"
+    },
+    {
+      "citation": "HDLZ2022",
+      "usedFor": "Objective limit comparison",
+      "readWhat": "Theorem7 proof, Corollary11 equations60-62, Remark12 equation63",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/abs/1908.07111v1"
+    },
+    {
+      "citation": "He2025",
+      "usedFor": "Inherited two-point map",
+      "readWhat": "Section2.2 Theorem9, Lemma10 and proof",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/abs/2501.10248v1"
+    },
+    {
+      "citation": "MMT2025b",
+      "usedFor": "Broader framework boundary",
+      "readWhat": "Definition8, Section2.1 Lemma9 and proof",
+      "date": "2026-11-06",
+      "evidenceLocator": "https://arxiv.org/abs/2505.04047v1"
+    }
+  ],
+  "limitationTriage": [
+    {
+      "limitation": "No explicit finite-parameter applicability test",
+      "closingQuestion": "Can Lemma6 be solved for K and compared with exact Kantorovich factor?",
+      "triedOrSearched": "Algebraic logarithm rearrangement and sufficient strict comparison; targeted mathematical recheck",
+      "estimatedCost": "Short analytic derivation; no new computation",
+      "cheap": true,
+      "decision": "CLOSED",
+      "reasonOpen": "",
+      "whyNotClosedNow": ""
+    },
+    {
+      "limitation": "No sharp logarithmic crossover or over-relaxation theorem",
+      "closingQuestion": "Does existing bootstrap or comparison already imply one?",
+      "triedOrSearched": "Inspected Lemma6 admissibility and relaxation dependence; review found no immediate closure",
+      "estimatedCost": "Unknown new research",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Needs additional argument beyond proved parameter ranges",
+      "whyNotClosedNow": "Not a routine consequence; no unsupported extension asserted"
+    },
+    {
+      "limitation": "Absolute historical priority not established",
+      "closingQuestion": "Can bounded source comparison prove global absence?",
+      "triedOrSearched": "Version-specific source inspection, alias searches, canonical catalogue and preprints listing",
+      "estimatedCost": "Exhaustive guarantee unavailable",
+      "cheap": false,
+      "decision": "OPEN",
+      "reasonOpen": "Differently named equivalent result may exist",
+      "whyNotClosedNow": "Bounded search cannot establish universal negative"
+    }
+  ],
+  "extensionScout": {
+    "by": "Internal AI-assisted research review",
+    "date": "2026-11-06",
+    "proposals": [
+      "Extract finite applicability and sufficient failure criterion",
+      "Investigate exact logarithmic crossover"
+    ],
+    "actions": [
+      "Implemented and targeted rechecked elementary criterion",
+      "Retained crossover as open research, no speculative claim"
+    ]
+  }
+}

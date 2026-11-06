@@ -1,0 +1,157 @@
+"""Semantic corruptions must fail at the intended optimization-safe guard."""
+import ast
+import contextlib
+import io
+import json
+import sys
+from decimal import localcontext
+from pathlib import Path
+from guards import VerificationError, require, write_receipt
+
+HERE = Path(__file__).resolve().parent
+
+class InsertCorruption(ast.NodeTransformer):
+    def __init__(self, code, assignment):
+        self.code, self.assignment, self.count = code, assignment, 0
+    def visit_Expr(self, node):
+        call = node.value
+        if (isinstance(call, ast.Call) and isinstance(call.func, ast.Name)
+                and call.func.id == 'require' and len(call.args) >= 2
+                and isinstance(call.args[1], ast.Constant)
+                and call.args[1].value == self.code):
+            self.count += 1
+            return ast.parse(self.assignment).body + [node]
+        return self.generic_visit(node)
+
+def check_case(filename, code, assignment, entry):
+    path = HERE / filename
+    tree = ast.parse(path.read_text())
+    require(not any(isinstance(n, ast.Assert) for n in ast.walk(tree)), 'NO_REMOVABLE_ASSERTS')
+    if assignment is not None:
+        change = InsertCorruption(code, assignment)
+        tree = change.visit(tree)
+        require(change.count == 1, 'UNIQUE_GUARD_TARGET')
+    ast.fix_missing_locations(tree)
+    env = {'__name__': 'semantic_test', '__file__': str(path)}
+    exec(compile(tree, str(path), 'exec', optimize=sys.flags.optimize), env)
+    # Any attempted receipt is itself a failure; invalid executions cannot emit success.
+    env['write_receipt'] = lambda record: require(False, 'INVALID_CASE_REACHED_RECEIPT')
+    try:
+        with contextlib.redirect_stdout(io.StringIO()), localcontext() as ctx:
+            ctx.prec = 160
+            eval(entry, env)
+    except VerificationError as exc:
+        require(exc.code == code, 'WRONG_GUARD_' + exc.code)
+        return {'guard': code, 'outcome': 'rejected_at_intended_guard'}
+    raise RuntimeError('INVALID_CASE_ACCEPTED_' + code)
+
+def main():
+    records = [check_case(*case) for case in CASES]
+    record = {'status': 'PASS_SEMANTIC_NEGATIVES', 'optimization': sys.flags.optimize,
+              'cases': records, 'count': len(records),
+              'scope': 'Guard sensitivity only; not a proof of universal mathematics'}
+    write_receipt(record)
+    print(json.dumps(record, indent=2))
+
+CASES = [
+  [
+    "check_exact_examples.py",
+    "TWO_MODE_INVERSION",
+    "masses[1] += 1",
+    "two_mode_checks()"
+  ],
+  [
+    "check_exact_examples.py",
+    "TWO_MODE_SCALAR",
+    "gamma = F(0)",
+    "two_mode_checks()"
+  ],
+  [
+    "check_exact_examples.py",
+    "TWO_MODE_BOUND",
+    "gamma = F(2)",
+    "two_mode_checks()"
+  ],
+  [
+    "check_exact_examples.py",
+    "EXACT_STEPS",
+    "alphas = [F(0)]",
+    "main()"
+  ],
+  [
+    "check_exact_examples.py",
+    "EXACT_RATIO",
+    "ratio += 1",
+    "main()"
+  ],
+  [
+    "check_exact_examples.py",
+    "EXACT_DIFFERENCE",
+    "difference += 1",
+    "main()"
+  ],
+  [
+    "check_exact_examples.py",
+    "STRICT_FAILURE",
+    "difference = F(0)",
+    "main()"
+  ],
+  [
+    "check_exact_examples.py",
+    "RATIONAL_FAMILY",
+    "ratio = comparison",
+    "main()"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "MIDDLE_RECURRENCE",
+    "middle += 1",
+    "exact_rational_checks()"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "HIGH_RECURRENCE",
+    "high += 1",
+    "exact_rational_checks()"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "RATIO_RECURRENCE",
+    "u *= 2",
+    "exact_rational_checks()"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "FINITE_RESULT",
+    "ratio = Decimal('NaN')",
+    "one_case('1','0.5',8,1)"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "HORIZON_BOUND",
+    "ratio = Decimal(2)",
+    "one_case('1','0.5',8,1)"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "STEP_BOUND",
+    "step_deviation = Decimal(2)",
+    "one_case('1','0.5',8,1)"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "FINITE_INPUT",
+    None,
+    "one_case('NaN','0.5',8,1)"
+  ],
+  [
+    "check_uniform_horizon.py",
+    "DOMAIN_INPUT",
+    None,
+    "one_case('1','1',8,1)"
+  ]
+]
+
+if __name__ == '__main__':
+    main()
+
